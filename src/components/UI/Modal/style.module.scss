@@ -1,0 +1,45 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    box-shadow: 1px 1px 1px black;
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+    font-size: 22px;
+    will-change: transform;
+    transform: translateY(-100vh);
+    &.show {
+        transform: translateY(0);
+    }
+
+    .text {
+        text-transform: capitalize;
+    }
+
+    button {
+        margin-top: 15px;
+        cursor: pointer;
+        outline: none;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #fff;
+        width: 88px;
+        border: none;
+        background-color: #0377d1;
+        height: 43px;
+        border-radius: 40px;
+        transition: 0.5s;
+        &:hover {
+            background-color: #1b4d98;
+        }
+    }
+}

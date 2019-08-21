@@ -1,0 +1,38 @@
+.outer {
+    display: flex;
+    min-height: 70vh;
+    max-width: 1170px;
+    margin: 30vh auto 0;
+    padding: 0 20px;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+
+    .left {
+        width: 31%;
+    }
+    .right {
+        width: calc(69% - 130px);
+        margin-left: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        .left {
+            border: none;
+            width: 0;
+        }
+        .right {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .outer {
+        padding: 0 10px;
+    }
+}

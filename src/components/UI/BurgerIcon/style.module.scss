@@ -1,0 +1,25 @@
+.wrapper {
+    margin-left: auto;
+    display: none;
+    position: relative;
+    top: -30px;
+    width: 30px;
+    height: 30px;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    div {
+        width: 90%;
+        height: 2px;
+        background-color: white;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        display: flex;
+    }
+}

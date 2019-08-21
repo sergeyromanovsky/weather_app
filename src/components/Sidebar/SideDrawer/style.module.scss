@@ -1,0 +1,37 @@
+@media (min-width: 769px) {
+    .wrapper {
+        padding: 15px 0;
+        border-right: 1px solid rgba(237, 242, 245, 0.3);
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 280px;
+        max-width: 70%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 200;
+        background-image: linear-gradient(to right, #0173d7 0%, #00a9e1 100%);
+        padding: 32px 16px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease-out;
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.show {
+    transform: translateX(0);
+}
