@@ -10,7 +10,7 @@ const initialCity = {
     more  : []
 };
 
-const { openModal } = useUiStore();
+const { openModal, hideSidebar } = useUiStore();
 
 const savedState = JSON.parse(sessionStorage.getItem('savedState'));
 const savedActiveCity = JSON.parse(sessionStorage.getItem('savedActiveCity'));
@@ -20,15 +20,17 @@ class Cities {
         autorun(() => {
             sessionStorage.setItem('savedState', JSON.stringify(this.cities));
             sessionStorage.setItem('savedActiveCity', JSON.stringify(this.activeCity));
-        },
-        { delay: 1000 });
+        });
     }
 
     @observable cities = savedState || [initialCity];
 
     @observable activeCity = savedActiveCity || initialCity;
 
-    @action setActive = (city) => (this.activeCity = city);
+    @action setActive = (city) => {
+        this.activeCity = city;
+        hideSidebar();
+    };
 
     findIndex = (city) => this.cities.findIndex(({ name }) => name === city);
 
@@ -42,6 +44,8 @@ class Cities {
                     handleFetch({ url }),
                     handleFetch({ url: moreUrl })
                 ]);
+
+                // get only 5 items, instead 40
 
                 const updMore = more.list.filter((item, index) => index % 8 === 0);
 
@@ -63,12 +67,12 @@ class Cities {
             }
         },
         (error) => {
-            console.error(error);
+            openModal(error.message);
         },
         {
             maximumAge         : 600000,
             enableHighAccuracy : true,
-            timeout            : 60000
+            timeout            : 15000
         });
     };
 
@@ -83,12 +87,14 @@ class Cities {
                     handleFetch({ url: todayUrl }),
                     handleFetch({ url: moreUrl })
                 ]);
+                // get only 5 items, instead 40
                 const updMore = more.list.filter((item, index) => index % 8 === 0);
 
                 runInAction(() => {
                     const cityObj = { name: city.toLowerCase(), today, more: updMore };
                     this.setActive(cityObj);
                     this.cities.push(cityObj);
+                    hideSidebar();
                 });
             } catch (error) {}
         } else {

@@ -8,6 +8,9 @@
     cursor: pointer;
 }
 
+.error {
+}
+
 .form {
     width: 100%;
     padding-right: 30px;
@@ -26,44 +29,44 @@
         transition: 0.5s;
         will-change: transform;
 
-        input {
-            position: relative;
-            background-color: #31b2ff;
-            z-index: 10;
-            width: 100%;
-            border: none;
-            height: 43px;
-            border-radius: 40px;
-            outline: none;
-            padding-left: 30px;
-            font-size: 16px;
-            color: #1b4d98;
-            box-sizing: border-box;
-            line-height: normal;
-            &::placeholder {
+        .inputWrapper {
+            input {
+                background-color: #31b2ff;
+                border: none;
+                height: 43px;
+                outline: none;
+                padding-left: 30px;
+                border-radius: 40px;
+                width: 100%;
+                font-size: 16px;
                 color: #1b4d98;
-                opacity: 0.7;
+                box-sizing: border-box;
+                line-height: normal;
+                &::placeholder {
+                    color: #1b4d98;
+                    opacity: 0.7;
+                }
             }
-        }
 
-        button {
-            cursor: pointer;
-            z-index: 10;
-            outline: none;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #fff;
-            position: absolute;
-            right: 0;
-            width: 88px;
-            border: none;
-            background-color: rgb(3, 119, 209);
-            height: 43px;
-            border-radius: 40px;
-            transition: 0.5s;
-            &:hover {
-                background-color: #1b4d98;
+            button {
+                cursor: pointer;
+                z-index: 10;
+                outline: none;
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #fff;
+                position: absolute;
+                right: 0px;
+                width: 88px;
+                border: none;
+                background-color: rgb(3, 119, 209);
+                height: 43px;
+                border-radius: 40px;
+                transition: 0.5s;
+                &:hover {
+                    background-color: #1b4d98;
+                }
             }
         }
     }

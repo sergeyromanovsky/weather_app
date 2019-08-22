@@ -14,6 +14,8 @@ class Ui {
 
     @action toggleSidebar = () => (this.showSidebar = !this.showSidebar);
 
+    @action hideSidebar = () => (this.showSidebar = false);
+
     @action openModal = (msg) => {
         this.modal = {
             msg,

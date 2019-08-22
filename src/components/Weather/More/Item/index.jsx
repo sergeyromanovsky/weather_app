@@ -10,7 +10,7 @@ const Item = ({ item }) => {
     return (
         <div className={style.item}>
             <p>{days[date].substring(0, 3)}</p>
-            <Icon url={item.weather[0].icon} />
+            <Icon key={item.weather[0].icon} url={item.weather[0].icon} />
             <span>
                 {item.main.temp.toFixed(0)} <sup>°</sup>
             </span>
